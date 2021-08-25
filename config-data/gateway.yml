@@ -3,8 +3,6 @@ server:
 
 eureka:
   client:
-    #registerWithEureka: false
-    #fetchRegistry: false
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
@@ -15,17 +13,14 @@ spring:
     gateway:
       routes:
         - id: service-customer
-          uri: lb://service-customer
+          uri: lb://SERVICE-CUSTOMER
           predicates:
             - Path=/customer/**
         - id: service-product
-          uri: lb://service-product
+          uri: lb://SERVICE-PRODUCT
           predicates:
             - Path=/product/**
         - id: service-bill
-          uri: lb://service-bill
+          uri: lb://SERVICE-BILL
           predicates:
             - Path=/bill/**
-
-
-
