@@ -2,6 +2,8 @@ server:
   port: 8099
 
 spring:
+  application:
+    name: gateway-service
   cloud:
     gateway:
       discovery:
@@ -17,6 +19,6 @@ spring:
           predicates:
             - Path=/product/**
         - id: service-bill
-            uri: lb://service-bill
-            predicates:
-              - Path=/bill/**
+          uri: lb://service-bill
+          predicates:
+            - Path=/bill/**
